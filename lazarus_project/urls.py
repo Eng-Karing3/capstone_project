@@ -40,6 +40,7 @@ def home(request):
         "status": "Running smoothly ✅"
     })
 
+
 urlpatterns = [
     path('', home),  # 👈 Creative root route
     path('admin/', admin.site.urls),
@@ -48,7 +49,8 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('orders/', include('orders.urls')),
     path('leads/', include('leads.urls')),
-    path('api/token/', include('rest_framework_simplejwt.urls')),  # optional
+
+    # ✅ JWT endpoints
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
