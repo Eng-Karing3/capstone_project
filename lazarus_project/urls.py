@@ -20,16 +20,40 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.http import JsonResponse
 
+
+def home(request):
+    return JsonResponse({
+        "message": "🚀 Welcome to Lazarus Project API",
+        "description": "An upcycling and sustainable fashion backend service.",
+        "available_endpoints": {
+            "Admin": "/admin/",
+            "Accounts": "/accounts/",
+            "Users": "/users/",
+            "Products": "/products/",
+            "Orders": "/orders/",
+            "Leads": "/leads/",
+            "Auth Token": "/api/token/",
+            "Refresh Token": "/api/token/refresh/"
+        },
+        "status": "Running smoothly ✅"
+    })
 
 urlpatterns = [
+    path('', home),  # 👈 Creative root route
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('users/', include('users.urls')),
     path('products/', include('products.urls')),
     path('orders/', include('orders.urls')),
     path('leads/', include('leads.urls')),
-
+    path('api/token/', include('rest_framework_simplejwt.urls')),  # optional
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
+
+
+
+
+
