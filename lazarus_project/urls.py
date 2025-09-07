@@ -21,7 +21,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 from django.http import JsonResponse
-
+from . import views
 
 def home(request):
     return JsonResponse({
@@ -43,6 +43,7 @@ def home(request):
 
 urlpatterns = [
     path('', home),  # 👈 Creative root route
+    path("", views.home, name="home"), 
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('users/', include('users.urls')),
@@ -54,6 +55,8 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
+
+
 
 
 
