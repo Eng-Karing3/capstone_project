@@ -86,7 +86,7 @@ import dj_database_url
 
 
 ALLOWED_HOSTS = [
-    "capstone-project-2-pw27.onrender.com",
+    "https://capstone-project-3-zdm0.onrender.com/",
     "localhost",
     "127.0.0.1",
 ]
