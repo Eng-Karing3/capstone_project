@@ -84,6 +84,13 @@ import os
 import dj_database_url
 
 
+
+ALLOWED_HOSTS = [
+    "capstone-project-2-pw27.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Static files for Render
