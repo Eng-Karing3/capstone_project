@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lazarus Project API</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <meta charset="UTF-8">
+  <title>Lazarus Project API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f9;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .endpoints {
+      margin-top: 20px;
+    }
+    a {
+      display: block;
+      margin: 8px 0;
+      color: #3498db;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 Welcome to Lazarus Project API</h1>
-        <p>An upcycling and sustainable fashion backend service.</p>
-        
-        <h3>Available Endpoints</h3>
-        <ul>
-            <li><a href="/admin/">Admin</a></li>
-            <li><a href="/accounts/">Accounts</a></li>
-            <li><a href="/users/">Users</a></li>
-            <li><a href="/products/">Products</a></li>
-            <li><a href="/orders/">Orders</a></li>
-            <li><a href="/leads/">Leads</a></li>
-            <li><a href="/api/token/">Auth Token</a></li>
-            <li><a href="/api/token/refresh/">Refresh Token</a></li>
-        </ul>
+  <h1>🚀 Welcome to Lazarus Project API</h1>
+  <p>An upcycling and sustainable fashion backend service.</p>
+  
+  <div class="endpoints">
+    <h2>Available Endpoints</h2>
+    <a href="/admin/">Admin</a>
+    <a href="/accounts/">Accounts</a>
+    <a href="/users/">Users</a>
+    <a href="/products/">Products</a>
+    <a href="/orders/">Orders</a>
+    <a href="/leads/">Leads</a>
+    <a href="/api/token/">Auth Token</a>
+    <a href="/api/token/refresh/">Refresh Token</a>
+  </div>
 
-        <p class="status">Status: <strong>Running smoothly ✅</strong></p>
-    </div>
+  <footer style="margin-top:40px; color:#777;">
+    Status: ✅ Running smoothly
+  </footer>
 </body>
 </html>
