@@ -86,16 +86,21 @@ import dj_database_url
 
 
 ALLOWED_HOSTS = [
-    "https://capstone-project-3-zdm0.onrender.com/",
+    "capstone-project-3-zdm0.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 # Static files for Render
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Only include STATICFILES_DIRS if you have a local static/ folder with extra files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+] if os.path.exists(os.path.join(BASE_DIR, 'static')) else []
+
 
 # Whitenoise
 MIDDLEWARE = [
@@ -117,9 +122,7 @@ DATABASES = {
         ssl_require=False
     )
 }
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
 
 
 # Password validation
@@ -160,7 +163,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
