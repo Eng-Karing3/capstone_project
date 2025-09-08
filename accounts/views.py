@@ -4,6 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
+from django.shortcuts import render
+
+def index(request):
+    return render(request, "accounts/index.html")
+
+
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST, request.FILES)
