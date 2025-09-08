@@ -4,30 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
-# accounts/views.py
-from django.shortcuts import render
-from django.http import HttpResponse
 
+# Home page for accounts
 def index(request):
     return render(request, "accounts/index.html")
 
+
+# Register new users
 def register(request):
-    return HttpResponse("Register Page - Work in progress")
-
-def login_view(request):
-    return HttpResponse("Login Page - Work in progress")
-
-def logout_view(request):
-    return HttpResponse("Logout Page - Work in progress")
-
-def profile(request):
-    return HttpResponse("Profile Page - Work in progress")
-
-def edit_profile(request):
-    return HttpResponse("Edit Profile Page - Work in progress")
-
-
-def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -39,6 +23,8 @@ def register_view(request):
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
 
+
+# Login existing users
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -50,12 +36,22 @@ def login_view(request):
         messages.error(request, "Invalid username or password.")
     return render(request, 'accounts/login.html')
 
+
+# Logout user
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
+
+# User profile
 @login_required
-def profile_view(request):
+def profile(request):
     return render(request, 'accounts/profile.html')
 
+
+# Edit profile
 @login_required
-def edit_profile_view(request):
+def edit_profile(request):
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
@@ -65,7 +61,3 @@ def edit_profile_view(request):
     else:
         form = CustomUserChangeForm(instance=request.user)
     return render(request, 'accounts/edit_profile.html', {'form': form})
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')
