@@ -4,10 +4,27 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
+# accounts/views.py
 from django.shortcuts import render
+from django.http import HttpResponse
 
 def index(request):
     return render(request, "accounts/index.html")
+
+def register(request):
+    return HttpResponse("Register Page - Work in progress")
+
+def login_view(request):
+    return HttpResponse("Login Page - Work in progress")
+
+def logout_view(request):
+    return HttpResponse("Logout Page - Work in progress")
+
+def profile(request):
+    return HttpResponse("Profile Page - Work in progress")
+
+def edit_profile(request):
+    return HttpResponse("Edit Profile Page - Work in progress")
 
 
 def register_view(request):
